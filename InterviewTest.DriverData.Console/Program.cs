@@ -3,22 +3,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InterviewTest.Commands;
-
+using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
 namespace InterviewTest
 {
 	public static class Program
 	{
 		public static void Main(string[] args)
-		{
-			var commandName = args[0];
-			var commandArguments = args.Skip(1).ToArray();
+		{   
 
-			switch (commandName)
+            var commandName = args[0];
+            var commandArguments = args.Skip(1).ToArray();
+
+            switch (commandName)
 			{
 				case "analyse":
 					new AnalyseHistoryCommand(commandArguments).Execute();
 					break;
-				default:
+                default:
 					throw new ArgumentOutOfRangeException();
 			}
 

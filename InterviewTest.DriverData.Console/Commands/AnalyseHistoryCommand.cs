@@ -8,13 +8,16 @@ namespace InterviewTest.Commands
 {
 	public class AnalyseHistoryCommand
 	{
-		// BONUS: What's great about readonly?
-		private readonly IAnalyser _analyser;
+        // BONUS: What's great about readonly?
+        //Readonly prevents fields from being changed.Readonly fields can be initialized at runtime,
+        //the value of the field can be assigned at the time of declaration or in constructor only not in any other methods. 
+        //After that we cannot change the value
+
+        private readonly IAnalyser _analyser;
 
 		public AnalyseHistoryCommand(IReadOnlyCollection<string> arguments)
 		{
 			var analysisType = arguments.Single();
-
 			_analyser = AnalyserLookup.GetAnalyser(analysisType);
 		}
 
